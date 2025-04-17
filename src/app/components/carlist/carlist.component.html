@@ -1,25 +1,34 @@
-<div class='container mt-3 mb-3'>
-    <button (click)="show = !show">{{show ? 'Hide' : 'Add a Car'}}</button>
-  
-    <div *ngIf="show">
-      <form (submit)="addCar(make.value, model.value, year.value, imageUrl.value)">
-        <label>Make</label>
-        <input type="text" name="make" placeholder="Enter Make" #make>
-  
-        <label>Model</label>
-        <input type="text" name="model" placeholder="Enter Model" #model>
-  
-        <label>Year</label>
-        <input type="text" name="year" placeholder="Enter Year" #year>
-  
-        <label>Image</label>
-        <input type="text" name="imageURL" placeholder="Enter Link to Image" #imageUrl>
-  
-        <button class="btn btn-primary" type="submit">Add Car</button>
-      </form>
-    </div>
+<div class="container mt-4 mb-4">
+  <button class="btn btn-custom mb-3" (click)="show = !show">
+    {{ show ? 'Hide' : 'Add a Car' }}
+  </button>
+
+  <div *ngIf="show">
+    <form class="p-4 card shadow-sm" style="border-radius: 16px; background: #f8fbff;">
+      <div class="mb-3">
+        <label class="form-label">Make</label>
+        <input type="text" name="make" placeholder="Enter Make" #make class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Model</label>
+        <input type="text" name="model" placeholder="Enter Model" #model class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Year</label>
+        <input type="text" name="year" placeholder="Enter Year" #year class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Image</label>
+        <input type="text" name="imageURL" placeholder="Enter Link to Image" #imageUrl class="form-control" />
+      </div>
+      <button class="btn btn-custom w-100" type="submit" (click)="addCar(make.value, model.value, year.value, imageUrl.value)">
+        Add Car
+      </button>
+    </form>
   </div>
-  
-  <div class='container'>
-    <app-car *ngFor="let car of carsData" [carData]="car"></app-car>
-  </div>
+</div>
+
+<div class="container">
+  <div class="car-list-header mb-3">Available Cars</div>
+  <app-car *ngFor="let carData of carsData" [carData]="carData"></app-car>
+</div>
