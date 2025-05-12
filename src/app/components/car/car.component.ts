@@ -18,10 +18,10 @@ import { ICar } from '../../interfaces/car';
   `
 })
 export class CarComponent {
-  // With this – we receive in car information to this component so we can display!
+
   @Input() carData!: ICar;
 
-  carImageWidth: number = 300; // This keeps our car image size pretty neat…
+  carImageWidth: number = 300; 
 
   constructor(private _carAPIService: CarApiService) {}
 
